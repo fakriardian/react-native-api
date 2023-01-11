@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, ActivityIndicator } from 'react-native';
 import WeatherSearch from './src/screen/weatherSearch';
 import WeatherInfo from './src/screen/weatherInfo';
 import axios from 'axios';
-import { BASE_URL, API_KEY } from '@env';
+import config from './src/constant';
 
 
 
@@ -13,7 +13,7 @@ const App = () => {
   const searchWeather = location => {
     setStatus('loading');
     axios
-      .get(`${BASE_URL}?q=${location}&appid=${API_KEY}`)
+      .get(`${config.BASE_URL}?q=${location}&appid=${config.API_KEY}`)
       .then(response => {
         const data = response.data;
         // console.log(data.name);
